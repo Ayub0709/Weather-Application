@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Weather App (Next.js - Internship Project)
+
+This is a simple weather application built with Next.js, developed as an internship project. It allows users to search for weather information by city name, utilizing the OpenWeatherMap API for real-time data.
+
+**Important Note:** This project is intended for educational purposes as part of an internship. It does not include an `.env` file for API key management or a formal license.
+
+## Features
+
+-   **Search Functionality:** Users can enter a city name in the search bar and retrieve weather information.
+-   **Real-time Weather Data:** Displays current weather conditions, temperature, humidity, wind speed, and weather icon.
+-   **Responsive UI:** Designed to be clean, modern, and responsive across different devices, using Next.js's built-in CSS modules or styled-components.
+-   **Loading State:** Shows a loading indicator while fetching data from the API.
+-   **Error Handling:** Displays appropriate error messages for invalid city names or API failures.
+-   **Metric Units:** Displays temperature in Celsius (°C) and wind speed in kilometers per hour (km/h).
+-   **Next.js Features:** Leverages Next.js features like server-side rendering (SSR) or static site generation (SSG) for performance optimization (if applicable).
+
+## Technologies Used
+
+-   Next.js
+-   React
+-   OpenWeatherMap API
+-   `fetch` or `axios` (for HTTP requests)
+-   CSS Modules or Styled Components (for styling)
 
 ## Getting Started
 
-First, run the development server:
+1.  **Clone the Repository:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    ```bash
+    git clone <repository_url>
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.  **Install Dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```bash
+    cd <repository_directory>
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3.  **Configure API Key (Directly in Code - NOT Recommended for Production):**
 
-## Learn More
+    -   **For this internship project, you will place your API key directly into the javascript file, this is not a secure practice, and should not be used in real world applications.**
+    -   Open the appropriate component file (e.g., `pages/index.js` or where you make the API call).
+    -   Replace `{YOUR_API_KEY}` in the API URL with your actual API key.
 
-To learn more about Next.js, take a look at the following resources:
+    ```javascript
+    const apiKey = 'YOUR_API_KEY'; // Replace with your API key - Internship only!
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    ```
+    -   **Important:** In a real application, use environment variables or a secure configuration method.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4.  **Run the Development Server:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    ```
 
-## Deploy on Vercel
+5.  **Open in Browser:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    -   Open your browser and navigate to `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+
+1.  Enter the name of a city in the search bar.
+2.  Click the "Submit" button or press Enter.
+3.  The weather information for the specified city will be displayed.
+4.  If an error occurs (e.g., invalid city name or API failure), an error message will be shown.
+
+## API Integration
+
+-   The application uses the OpenWeatherMap Current Weather API to fetch weather data.
+-   API URL: `https://api.openweathermap.org/data/2.5/weather?q={city}&appid={YOUR_API_KEY}&units=metric`
+-   The `units=metric` parameter ensures that the temperature is displayed in Celsius and wind speed in kilometers per hour.
+-   `fetch` or `axios` is used to make HTTP requests to the API.
+-   Error handling is implemented to manage API failures and invalid city names.
+
+## UI Design
+
+-   The user interface is designed to be clean and modern, leveraging Next.js's styling capabilities.
+-   It includes a search bar, submit button, and a weather info card.
+-   The weather info card displays the following information:
+    -   City Name
+    -   Current Temperature (°C)
+    -   Weather Condition (e.g., Sunny, Rainy, Snow)
+    -   Humidity (%)
+    -   Wind Speed (km/h)
+    -   Weather Icon (provided by the API)
+-   A loading state is displayed while fetching data.
+-   Error messages are displayed for invalid input or API errors.
+
+## Next.js Specifics
+
+-   **Routing:** Utilizes Next.js's file-based routing.
+-   **Styling:** Uses CSS Modules or styled-components for component-scoped styling.
+-   **Data Fetching:** Implements data fetching using `fetch` or `axios` within Next.js components.
+-   **Performance Optimization:** Potential use of SSR or SSG depending on the implementation.
+
+## Future Improvements (Beyond Internship Scope)
+
+-   Add support for displaying weather forecasts.
+-   Implement location-based weather retrieval.
+-   Enhance the UI with more detailed weather information.
+-   Add support for different unit systems (e.g., Fahrenheit).
+-   Improve Accessibility.
+-   Implement better state management.
+-   **Securely store API keys using environment variables or a secrets management solution.**
+-   **Add a License.**
+
+## Contributing
+
+As this is an internship project, contributions are not expected.
